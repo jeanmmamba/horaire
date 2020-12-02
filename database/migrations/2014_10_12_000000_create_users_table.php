@@ -20,8 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('prenom')->nullable();;
             $table->string('departement')->nullable();;
             $table->string('fonction')->nullable();;
-            $table->date('arrive')->nullable();
-            $table->date('depart')->nullable();
             $table->string('matricule')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
