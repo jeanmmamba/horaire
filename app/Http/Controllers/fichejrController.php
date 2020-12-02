@@ -34,8 +34,8 @@ class fichejrController extends Controller
 
             $empl =  new historique();
             $empl->user_id = $id;
-            $empl->date_jr = carbon::now();
-            $empl->statut =  $employer->type;
+            $empl->hr_arrive = null;
+            $empl->hr_depart = null;
             $empl->save();
         
             return redirect()->route('fiche-list',['id'=>$employer->id]);

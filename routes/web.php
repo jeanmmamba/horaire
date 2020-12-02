@@ -37,10 +37,11 @@ Route::group(['prefix'=>'back'], function(){
     
 
     Route::get('/fichevac',['uses'=>'fichevacController@index']);
-    Route::get('/fichevac/create',['uses'=>'fichevacController@create' ]);   
-    Route::POST('/fichevac/store',['uses'=>'fichevacController@store']);
+    Route::get('/fichevac/create',['uses'=>'fichevacController@create' ]);  
+    Route::get('/fichevac/planif',['uses'=>'fichevacController@planif' ]);   
+    Route::POST('/fichevac/store/{id}',['uses'=>'fichevacController@store']);
     Route::Put('/vacance/statut/{id}',['uses'=>'fichevacController@statut']);
-    Route::get('/vacance/listing',['uses'=>'fichevacController@listing']);
+    Route::get('/vacance/listing',['uses'=>'fichevacController@listing', 'as'=>'listing-vacance']);
     
     Route::put('/presence/statut/{id}',['uses'=>'fichejrController@status']);
     Route::get('/presence/list',['uses'=>'fichejrController@list']);

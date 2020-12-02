@@ -41,6 +41,7 @@
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="recherche .." title="Type in a name">
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="{{ url('/back/vacance/listing') }}" class="btn btn-primary pull-right">personnes en gongé </a>  
     </a>
 
     <table id="myTable">
@@ -64,7 +65,7 @@
             <td>{{ $row->fin }}</td>
             <td> {{ $row->motif }} </td>
             <td>
-                {{ Form::open(['method'=>'put','url'=>['/back/fichevac/statut/'.$row->id], 'style'=>'display:inline' ]) }}
+                {{ Form::open(['method'=>'put','url'=>['/back/vacance/statut/'.$row->id], 'style'=>'display:inline' ]) }}
             @if($row->statut_vac===1)
                 {{ Form::submit('en conger',['class'=>'btn btn-warning']) }}
             @else

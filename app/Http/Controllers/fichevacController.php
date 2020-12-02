@@ -25,7 +25,7 @@ class fichevacController extends Controller
     }
 
 
-    public function statut($id){
+    public function statut(request $request, $id){
         $employer=user::find($id);
         if($employer->type===1){
             $employer->type=0;
@@ -33,14 +33,13 @@ class fichevacController extends Controller
             $employer->type=1;
         }
         $employer->save();
+
         if($employer->type===1){
-            $vac = new vacance();
-            $vac->user_id = $id;
-            $vac->debut = null;
-            $vac->fin = null ;
-            $vac->motif = 'malade';
-            $vac->statut_vac = 0;
-            $vac->save();
+                $page_name = 'congedier';
+                $w=$employer->id;
+                $l=$employer->name;
+                $i=$employer->fonction;
+            return view('admin.crevac', compact('page_name','i','l','w'));
         }else{
             vacance::where('id',$id)->delete();
         }
@@ -52,18 +51,25 @@ class fichevacController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function planif()
     {
         $page_name = 'planifier conger';
         $users = DB::table('users')->get();
         return view('admin.employe.list', compact('page_name','users'));
     }
 
+    public function create()
+    {
+
+    }
+
     public function listing()
     {
         $page_name = 'liste des personnes en conger';
-        $liste = DB::table('vacances')->get();
-        return view('admin.listing',compact('liste'));
+        $liste = DB::table('vacances')
+        ->join('users', 'vacances.user_id', '=', 'users.id')
+        ->get();
+        return view('admin.listing',compact('liste','page_name'));
     }
 
     /**
@@ -72,9 +78,19 @@ class fichevacController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        
+        $vac = new vacance();
+        $vac->user_id= $id;
+        $vac->debut= $request->debut;
+        $vac->fin = $request->fin;
+        $vac->motif = $request->motif;
+        $vac->statut_vac = 0;
+        $vac->save();
+
+        return redirect()->action('fichevacController@listing');
+
     }
 
     /**

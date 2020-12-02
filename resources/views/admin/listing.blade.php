@@ -43,7 +43,6 @@
                 {{ $message }}
                 
             </div>
-
             @endif
 
                     <div class="card-header">
@@ -54,6 +53,8 @@
                 <thead>
                     <tr>
                     <th>#</th>
+                    <th>name</th>
+                    <th>fonction</th>
                     <th>debut</th>
                     <th>fin </th>
                     <th>motif</th>
@@ -64,6 +65,8 @@
                     @foreach($liste as $i=>$row)
                     <tr>
                     <td>{{ ++$i }}</td>
+                    <td>{{ $row->name }}</td>
+                    <td>{{ $row->fonction }}</td>
                     <td>{{ $row->debut }}</td>
                     <td>{{ $row->fin }}</td>
                     <td> {{ $row->motif }} </td>

@@ -16,7 +16,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.x",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "gghughunishvili/entrust": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

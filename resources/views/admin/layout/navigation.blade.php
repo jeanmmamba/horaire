@@ -22,8 +22,14 @@
                     </li>
 
                     <li>
-                        <a href="/back/fichevac"> <i class="menu-icon fa fa-laptop"></i> vacance </a>
+                        <a href="/back/fichevac/planif"> <i class="menu-icon fa fa-laptop"></i> vacance </a>
                     </li>
+
+                    <li>
+                        <a href="/back/vacance/listing"> <i class="menu-icon fa fa-laptop"></i> employé en conger</a>
+                    </li>
+
+                    
 
                     <li>
                         <a href="/back/employe/list"> <i class="menu-icon fa fa-laptop"></i> employé </a>

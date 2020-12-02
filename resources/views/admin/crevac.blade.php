@@ -34,35 +34,32 @@
                                         
                                         <hr>
 
-        {{ Form::open(array('url' => '/back/vacance/store','method'=>'post')) }}
+        {{ Form::open(array('url' => '/back/fichevac/store/'. $w ,'method'=>'post')) }}
                                     
                                             
                                 <div class="form-group">
-                {{ Form::label('name', 'Name', array('class' => 'control-label mb-1')) }}
-                                            
-                {{ Form::text('name',null,['class'=>'form-control','id'=>'name'] )  }}
+
+                <input value="{{ $l}}" type="text" class="form-control" disabled>       
+                <input value="{{ $i}}" type="text" class="form-control" disabled>
+                <input value="{{ $w}}" id="id" type="text" class="form-control" disabled>
+
+
                                     </div>
-
-        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
-            <input placeholder="Select date" type="text" id="example" class="form-control">
-            <i class="fas fa-calendar input-prefix"></i>
-        </div>
-                                    
-
-
-                        <div class="form-group">
-                            {{ Form::label('date_debut', 'date debut', array('class' => 'control-label mb-1')) }}
-                                                                    
-                            {{ Form::text('name',null,['class'=>'form-control','id'=>'name'] )  }}
-                        </div>
-                            
 
                                     <div class="form-group">
-                {{ Form::label('password', 'Password', array('class' => 'control-label mb-1')) }}
-                                            
-                {{ Form::password('password',['class'=>'form-control','id'=>'password'] )  }}
+                {{ Form::label('motif', 'motif', array('class' => 'control-label mb-1')) }}
+                                                                                
+                {{ Form::text('motif',null,['class'=>'form-control','id'=>'motif'] )  }}
                                     </div>
-                            
+                                <div>
+                                    {{ Form::label('debut', 'debut', array('class' => 'control-label mb-1')) }}                             
+                                    {{ Form::date('debut',null,['class'=>'form-control','id'=>'debut'] )  }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ Form::label('fin', 'fin', array('class' => 'control-label mb-1')) }}                             
+                                    {{ Form::date('fin',null,['class'=>'form-control','id'=>'fin'] )  }}
+                                </div>
 
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
