@@ -44,6 +44,7 @@ Route::group(['prefix'=>'back'], function(){
     Route::get('/vacance/listing',['uses'=>'fichevacController@listing', 'as'=>'listing-vacance']);
     
     Route::put('/presence/statut/{id}',['uses'=>'fichejrController@status']);
+<<<<<<< HEAD
     Route::get('/presence/list',['uses'=>'fichejrController@list']);
 
     Route::get('/permission/create',['uses'=>'admin\permissionController@create']);
@@ -51,4 +52,17 @@ Route::group(['prefix'=>'back'], function(){
 
     Route::get('/role/create',['uses'=>'admin\roleController@create']);
     Route::post('/role/store',['uses'=>'admin\roleController@store']);
+=======
+    Route::get('/presence/list',['uses'=>'fichejrController@index_hist']);
+>>>>>>> 18ccd31828c65b7c800ca162c918bc18752d7a34
+});
+
+
+// Affiche les user
+Route::get('/list-user', 'fichejrController@index');
+
+// Gerer les historiques
+Route::group(['prefix'=>'historique'], function(){
+    Route::get('/','fichejrController@index_hist')->name('list_hist');
+    Route::put('/record/{id}',['uses'=>'fichejrController@store','as'=>'record-hist']);
 });

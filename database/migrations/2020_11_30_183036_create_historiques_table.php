@@ -15,9 +15,12 @@ class CreateHistoriquesTable extends Migration
     {
         Schema::create('historiques', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
-            $table->dateTime('date_jr');
-            $table->dateTime('hr_depart');
-            $table->dateTime('hr_arrive');
+            $table->date('date_jr');
+            $table->time('hr_depart')->nullable();
+            $table->time('hr_arrive');
+            $table->tinyInteger('statut')->default('1'); //permet d'indiquer si la personne est presente ou absente
+                                            //afin de savoir si l'heure doit etre affecter a l arriver 
+                                            // ou au depart
             $table->primary(array('date_jr','user_id'));
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

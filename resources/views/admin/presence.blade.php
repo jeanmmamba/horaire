@@ -44,6 +44,7 @@
             <th>Name</th>
             <th>Email </th>
             <th>fonction</th>
+            <th>date</th>
             <th>arrivée</th>
             <th>sortie</th>
         </tr>
@@ -56,17 +57,12 @@
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->email }}</td>
                 <td> {{ $row->fonction }} </td>
-                <td> 
-                    @if($row->statut===0)   
-                        {{ $row->date_jr}} 
-                    @endif 
-                </td>
 
-                <td> 
-                    @if($row->statut===1)   
-                        {{ $row->date_jr}} 
-                    @endif 
-                </td>
+                <td>  {{ $row->date_jr}} </td> 
+                <td>  {{ $row->hr_arrive}} </td> 
+                <td>  {{ $row->hr_depart}} </td> 
+                    
+                
             
             @endforeach
             </tr>
