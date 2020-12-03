@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use App\User;
+use App\Role;
 use DB;
 
 class amployerController extends Controller
@@ -31,7 +32,8 @@ class amployerController extends Controller
     public function create()
     {
         $page_name = 'enregistrement employer';
-        return view('admin.employe.create',compact('page_name'));
+        $roles=Role::pluck('name','id');
+        return view('admin.employe.create',compact('page_name','roles'));
     }
 
     /**
@@ -57,13 +59,17 @@ class amployerController extends Controller
         $employer = new User();
         $employer->name = $request->name;
         $employer->prenom = $request->prenom;
-        $employer->departement ='informatique';
+        $employer->departement = $request->departement;
         $employer->fonction = $request->fonction;
         $employer->matricule = '00DA';
         $employer->email = $request->email;
         $employer->password=HASH::make($request->password);
         $employer->type = 0;
         $employer->save();
+    
+        foreach ($request->role as $value) {
+            $author->attachrole($value);
+         }
 
     return redirect()->action('amployerController@index')->with('success','employer enregistrer avec succes');
 

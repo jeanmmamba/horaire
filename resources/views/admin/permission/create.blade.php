@@ -40,7 +40,7 @@
                                 
                                 <hr>
 
-  {{ Form::open(array('url' => '/back/employe/store','method'=>'post')) }}
+  {{ Form::open(array('url' => '/back/permission/store','method'=>'post')) }}
                                
                                     
                         <div class="form-group">
@@ -50,43 +50,10 @@
                               </div>
 
                         <div class="form-group">
-        {{ Form::label('prenom', 'prenom', array('class' => 'control-label mb-1')) }}
+        {{ Form::label('display_name', 'display_name', array('class' => 'control-label mb-1')) }}
                                                           
-        {{ Form::text('prenom',null,['class'=>'form-control','id'=>'prenom'] )  }}
+        {{ Form::text('display_name',null,['class'=>'form-control','id'=>'display_name'] )  }}
                                                     </div>
-
-                                                    <div class="form-group">
-                    {{ Form::label('departement', 'departement', array('class' => 'control-label mb-1')) }}
-                                                                                                          
-                    {{ Form::text('departement',null,['class'=>'form-control','id'=>'departement'] )  }}
-                                                                                                    </div>
-
-                <div class="form-group">
-                    {{ Form::label('fonction', 'fonction', array('class' => 'control-label mb-1')) }}
-                                                                                                                     
-                   {{ Form::text('fonction',null,['class'=>'form-control','id'=>'fonction'] )  }}
-                           </div>
-                                                    
-
-                               <div class="form-group">
-          {{ Form::label('email', 'Email', array('class' => 'control-label mb-1')) }}
-                                    
-           {{ Form::email('email',null,['class'=>'form-control','id'=>'email'] )  }}
-                              </div>
-
-                               <div class="form-group">
-          {{ Form::label('password', 'Password', array('class' => 'control-label mb-1')) }}
-                                    
-          {{ Form::password('password',['class'=>'form-control','id'=>'password'] )  }}
-                              </div>
-
-
-                              <div class="form-group">
-            {{ Form::label('role','role',array('class' => 'control-label mb-1')) }}
-            {{ Form::select('role[]',$roles,null,['class'=>'form-control myselect','data-placeholder'=>'Select Roles', 'multiple'] )  }}
-                               
-                            </div>
-            
                       
 
               <div>

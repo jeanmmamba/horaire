@@ -45,4 +45,10 @@ Route::group(['prefix'=>'back'], function(){
     
     Route::put('/presence/statut/{id}',['uses'=>'fichejrController@status']);
     Route::get('/presence/list',['uses'=>'fichejrController@list']);
+
+    Route::get('/permission/create',['uses'=>'admin\permissionController@create']);
+    Route::post('/permission/store',['uses'=>'admin\permissionController@store']);
+
+    Route::get('/role/create',['uses'=>'admin\roleController@create']);
+    Route::post('/role/store',['uses'=>'admin\roleController@store']);
 });
