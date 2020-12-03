@@ -44,5 +44,15 @@ Route::group(['prefix'=>'back'], function(){
     Route::get('/vacance/listing',['uses'=>'fichevacController@listing', 'as'=>'listing-vacance']);
     
     Route::put('/presence/statut/{id}',['uses'=>'fichejrController@status']);
-    Route::get('/presence/list',['uses'=>'fichejrController@list']);
+    Route::get('/presence/list',['uses'=>'fichejrController@index_hist']);
+});
+
+
+// Affiche les user
+Route::get('/list-user', 'fichejrController@index');
+
+// Gerer les historiques
+Route::group(['prefix'=>'historique'], function(){
+    Route::get('/','fichejrController@index_hist')->name('list_hist');
+    Route::put('/record/{id}',['uses'=>'fichejrController@store','as'=>'record-hist']);
 });

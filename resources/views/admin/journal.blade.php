@@ -64,12 +64,12 @@
 
             <td>
                
-                {{ Form::open(['method'=>'put','url'=>['/back/presence/statut/'.$row->id], 'style'=>'display:inline' ]) }}
-            @if($row->type===1)
-                {{ Form::submit('absent',['class'=>'btn btn-danger']) }}
-            @else
-                {{ Form::submit('present',['class'=>'btn btn-success']) }}
-            @endif
+            {{ Form::open(['method'=>'put','url'=>['/historique/record/'.$row->id], 'style'=>'display:inline' ]) }}
+              @if($row->type===1)
+            {{ Form::submit('Marquer',['class'=>'btn btn-danger']) }}
+              @else
+            {{ Form::submit('Fin Journee',['class'=>'btn btn-success']) }}
+              @endif
             {{ Form::close() }}
 
         </td>
