@@ -41,7 +41,7 @@
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="recherche .." title="Type in a name">
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <a href="{{ url('back/presence/list') }}" class="btn btn-primary pull-right">afficher liste de presence </a>  
+      <a href="{{ url('/back/presence/list') }}" class="btn btn-primary pull-right">afficher liste de presence </a>  
   </a>
 
 

@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'back'], function(){
-    Route::get('/','dashboardPageController@index')->name('dashboard');
+    Route::get('/','amployerController@index');
     Route::get('/employe/list',['uses'=>'amployerController@index','as'=>'employer-list']);
     Route::get('/employe/create',['uses'=>'amployerController@create' ]);
     Route::POST('/employe/store',['uses'=>'amployerController@store']);
@@ -38,23 +38,20 @@ Route::group(['prefix'=>'back'], function(){
 
     Route::get('/fichevac',['uses'=>'fichevacController@index']);
     Route::get('/fichevac/create',['uses'=>'fichevacController@create' ]);  
-    Route::get('/fichevac/planif',['uses'=>'fichevacController@planif' ]);   
+    Route::get('/fichevac/planif',['uses'=>'fichevacController@planif']);   
     Route::POST('/fichevac/store/{id}',['uses'=>'fichevacController@store']);
     Route::Put('/vacance/statut/{id}',['uses'=>'fichevacController@statut']);
     Route::get('/vacance/listing',['uses'=>'fichevacController@listing', 'as'=>'listing-vacance']);
     
     Route::put('/presence/statut/{id}',['uses'=>'fichejrController@status']);
-<<<<<<< HEAD
-    Route::get('/presence/list',['uses'=>'fichejrController@list']);
+    Route::get('/presence/list',['uses'=>'fichejrController@index_hist']);
 
     Route::get('/permission/create',['uses'=>'admin\permissionController@create']);
     Route::post('/permission/store',['uses'=>'admin\permissionController@store']);
 
     Route::get('/role/create',['uses'=>'admin\roleController@create']);
     Route::post('/role/store',['uses'=>'admin\roleController@store']);
-=======
-    Route::get('/presence/list',['uses'=>'fichejrController@index_hist']);
->>>>>>> 18ccd31828c65b7c800ca162c918bc18752d7a34
+    Route::get('/dashboard',['uses'=>'dashBoardPageController@index']);
 });
 
 

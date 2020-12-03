@@ -68,8 +68,8 @@ class amployerController extends Controller
         $employer->save();
     
         foreach ($request->role as $value) {
-            $author->attachrole($value);
-         }
+            $employer->attachrole($value);
+        }
 
     return redirect()->action('amployerController@index')->with('success','employer enregistrer avec succes');
 

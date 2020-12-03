@@ -42,7 +42,7 @@ class permissionController extends Controller
         $permission->display_name = $request->display_name;
         $permission->description = 'description';
         $permission->save();
-        return redirect()->action('permissionController@create');
+        return redirect()->action('admin\permissionController@create');
     }
 
     /**
